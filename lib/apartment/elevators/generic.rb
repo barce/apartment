@@ -17,7 +17,6 @@ module Apartment
 
         database = @processor.call(request)
 
-        byebug
         if database
           Apartment::Tenant.switch(database) { @app.call(env) }
         else
